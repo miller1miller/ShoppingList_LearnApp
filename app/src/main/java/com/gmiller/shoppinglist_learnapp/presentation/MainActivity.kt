@@ -1,7 +1,8 @@
-package com.gmiller.shoppinglist_learnapp
+package com.gmiller.shoppinglist_learnapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.gmiller.shoppinglist_learnapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
