@@ -26,10 +26,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         val rvShopList = binding.rvShopList
         adapter = ShopListAdapter()
         rvShopList.adapter = adapter
+        rvShopList.recycledViewPool.setMaxRecycledViews(
+            ShopListAdapter.VIEW_TYPE_ENABLED, ShopListAdapter.MAX_POOL_SIZE
+        )
+        rvShopList.recycledViewPool.setMaxRecycledViews(
+            ShopListAdapter.VIEW_TYPE_DISABLED, ShopListAdapter.MAX_POOL_SIZE
+        )
     }
 
 }
