@@ -19,9 +19,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupRecyclerView()
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        viewModel.shopList.observe(this){
+        viewModel.shopList.observe(this) {
             shopListAdapter.submitList(it)
-
+        }
+        val buttonAddItem = binding.buttonAddShopItem
+        buttonAddItem.setOnClickListener {
+            val intent = ShopItemActivity.newIntentAddItem(this)
+            startActivity(intent)
         }
     }
 
@@ -65,6 +69,8 @@ class MainActivity : AppCompatActivity() {
     private fun setupClickListener() {
         shopListAdapter.onShopItemClickListener = {
             Log.d("MainActivity", it.toString())
+            val intent = ShopItemActivity.newIntentEditItem(this, it.id)
+            startActivity(intent)
         }
     }
 
